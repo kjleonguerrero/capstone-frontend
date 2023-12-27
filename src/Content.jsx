@@ -37,7 +37,7 @@ export function Content() {
 
   const handleUpdateExercise = (id, params, successCallback) => {
     console.log(handleUpdateExercise, params);
-    axios.patch("http:/localhost:3000/exercise/${id}.json", params).then((response) => {
+    axios.patch(`http://localhost:3000/exercises/${id}.json`, params).then((response) => {
       setExercises(
         exercises.map((exercise) => {
           if (exercise.id === response.data.id) {
@@ -57,6 +57,15 @@ export function Content() {
     setIsExercisesShowVisible(false);
   };
 
+  const handleDestroyExercise = (exercise) => {
+    console.log("handleDestroyExercise", exercise);
+    axios.delete(`http://localhost:3000/exercises/${exercise.id}.json`).then((response) => {
+      console.log(response.data);
+      setExercises(exercise.filter((e) => e.id !== exercise.id));
+      handleClose();
+    });
+  };
+
   useEffect(handleIndexExercises, []);
 
   return (
@@ -66,7 +75,11 @@ export function Content() {
       <ExercisesNew onCreateExercise={handleCreateExercise} />
       <ExercisesIndex exercises={exercises} onShowExercise={handleShowExercise} />
       <Modal show={isExercisesShowVisible} onClose={handleClose}>
-        <ExercisesShow exercise={currentExercise} onUpdateExercise={handleUpdateExercise} />
+        <ExercisesShow
+          exercise={currentExercise}
+          onUpdateExercise={handleUpdateExercise}
+          onDestroyExercise={handleDestroyExercise}
+        />
       </Modal>
       <LogoutLink />
     </main>

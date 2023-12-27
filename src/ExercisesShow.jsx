@@ -6,6 +6,10 @@ export function ExercisesShow(props) {
     props.onUpdateExercise(props.exercise.id, params, () => event.target.reset());
   };
 
+  const handleClick = () => {
+    props.onDestroyExercise(props.exercise);
+  };
+
   return (
     <div>
       <h1>Exercise Details</h1>
@@ -27,6 +31,7 @@ export function ExercisesShow(props) {
         </div>
         <button type="submit">Update Exercise</button>
       </form>
+      <button onClick={handleClick}>Delete Exercise</button>
     </div>
   );
 }
