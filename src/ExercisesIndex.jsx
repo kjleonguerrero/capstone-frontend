@@ -8,6 +8,8 @@ export function ExercisesIndex(props) {
           <h2>{exercise.title}</h2>
           <p>{exercise.description}</p>
           <img src={exercise.image_url} />
+          <video src={exercise.video_url} />
+          <button onClick={() => props.onShowExercise(exercise)}>More Info</button>
         </div>
       ))}
     </div>
