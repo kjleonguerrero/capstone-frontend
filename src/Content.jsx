@@ -35,6 +35,23 @@ export function Content() {
     setCurrentExercise(exercise);
   };
 
+  const handleUpdateExercise = (id, params, successCallback) => {
+    console.log(handleUpdateExercise, params);
+    axios.patch("http:/localhost:3000/exercise/${id}.json", params).then((response) => {
+      setExercises(
+        exercises.map((exercise) => {
+          if (exercise.id === response.data.id) {
+            return response.data;
+          } else {
+            return exercise;
+          }
+        })
+      );
+      successCallback();
+      handleClose();
+    });
+  };
+
   const handleClose = () => {
     console.log("handleClose");
     setIsExercisesShowVisible(false);
@@ -49,7 +66,7 @@ export function Content() {
       <ExercisesNew onCreateExercise={handleCreateExercise} />
       <ExercisesIndex exercises={exercises} onShowExercise={handleShowExercise} />
       <Modal show={isExercisesShowVisible} onClose={handleClose}>
-        <ExercisesShow exercise={currentExercise} />
+        <ExercisesShow exercise={currentExercise} onUpdateExercise={handleUpdateExercise} />
       </Modal>
       <LogoutLink />
     </main>
