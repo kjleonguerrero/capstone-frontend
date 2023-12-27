@@ -61,8 +61,9 @@ export function Content() {
     console.log("handleDestroyExercise", exercise);
     axios.delete(`http://localhost:3000/exercises/${exercise.id}.json`).then((response) => {
       console.log(response.data);
-      setExercises(exercise.filter((e) => e.id !== exercise.id));
+      setExercises(exercises.filter((e) => e.id !== exercise.id));
       handleClose();
+      window.location.href = "/"; // Change this to hide a modal, redirect to a specific page, etc.
     });
   };
 
