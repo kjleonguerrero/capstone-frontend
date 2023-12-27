@@ -1,6 +1,9 @@
 import { ExercisesIndex } from "./ExercisesIndex";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { Signup } from "./Signup";
+import { Login } from "./Login";
+import { LogoutLink } from "./LogoutLink";
 
 export function Content() {
   const [exercises, setExercises] = useState([]);
@@ -17,7 +20,10 @@ export function Content() {
 
   return (
     <main>
-      <ExercisesIndex excersice={exercises} />
+      <Signup />
+      <Login />
+      <ExercisesIndex exercises={exercises} />
+      <LogoutLink />
     </main>
   );
 }
