@@ -7,6 +7,7 @@ import { LogoutLink } from "./LogoutLink";
 import { ExercisesNew } from "./ExercisesNew";
 import { ExercisesShow } from "./ExercisesShow";
 import { Modal } from "./Modal";
+import { Routes, Route } from "react-router-dom";
 
 export function Content() {
   const [exercises, setExercises] = useState([]);
@@ -71,10 +72,16 @@ export function Content() {
 
   return (
     <main>
-      <Signup />
-      <Login />
-      <ExercisesNew onCreateExercise={handleCreateExercise} />
-      <ExercisesIndex exercises={exercises} onShowExercise={handleShowExercise} />
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route
+          path="/exercises"
+          element={<ExercisesIndex exercises={exercises} onShowExercise={handleShowExercise} />}
+        />
+        <Route path="/exercises/new" element={<ExercisesNew onCreateExercise={handleCreateExercise} />} />
+        <Route path="/logoutlink" element={<LogoutLink />} />
+      </Routes>
       <Modal show={isExercisesShowVisible} onClose={handleClose}>
         <ExercisesShow
           exercise={currentExercise}
@@ -82,7 +89,6 @@ export function Content() {
           onDestroyExercise={handleDestroyExercise}
         />
       </Modal>
-      <LogoutLink />
     </main>
   );
 }

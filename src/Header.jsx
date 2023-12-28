@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+import { LogoutLink } from "./LogoutLink";
+
 export function Header() {
   return (
     <header>
@@ -13,28 +16,29 @@ export function Header() {
               {/* <!-- Nav Links --> */}
               <ul className="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
                 <li>
-                  <a className="hover:text-rose-500" href="#">
+                  <Link className="hover:text-rose-500" to="#">
                     Home
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="hover:text-rose-500" href="#">
+                  <Link className="hover:text-rose-500" to="/exercises">
                     Exercises
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="hover:text-rose-500" href="#">
+                  <Link className="hover:text-rose-500" to="#">
                     Routine
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="hover:text-rose-500" href="">
+                  <Link className="hover:text-rose-500" to="/login">
                     Login
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="hover:text-rose-500" href="#">
-                    Logout
+                  <a className="hover:text-rose-500">
+                    {" "}
+                    <LogoutLink />
                   </a>
                 </li>
               </ul>
