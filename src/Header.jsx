@@ -26,7 +26,7 @@ export function Header() {
                   </Link>
                 </li>
                 <li>
-                  <Link className="hover:text-rose-500" to="#">
+                  <Link className="hover:text-rose-500" to="/routines">
                     Routine
                   </Link>
                 </li>

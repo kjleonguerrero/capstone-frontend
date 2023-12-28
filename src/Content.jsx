@@ -6,11 +6,13 @@ import { Login } from "./Login";
 import { LogoutLink } from "./LogoutLink";
 import { ExercisesNew } from "./ExercisesNew";
 import { ExercisesShow } from "./ExercisesShow";
+import { RoutinesIndex } from "./RoutinesIndex";
 import { Modal } from "./Modal";
 import { Routes, Route } from "react-router-dom";
 
 export function Content() {
   const [exercises, setExercises] = useState([]);
+  const [routines, setRoutines] = useState([]);
   const [isExercisesShowVisible, setIsExercisesShowVisible] = useState(false);
   const [currentExercise, setCurrentExercise] = useState({});
 
@@ -19,6 +21,14 @@ export function Content() {
     axios.get("http://localhost:3000/exercises.json").then((response) => {
       console.log(response.data);
       setExercises(response.data);
+    });
+  };
+
+  const handleIndexRoutines = () => {
+    console.log("handleIndexRoutines");
+    axios.get("http://localhost:3000/routines.json").then((response) => {
+      console.log(response.data);
+      setRoutines(response.data);
     });
   };
 
@@ -70,6 +80,8 @@ export function Content() {
 
   useEffect(handleIndexExercises, []);
 
+  useEffect(handleIndexRoutines, []);
+
   return (
     <main>
       <Routes>
@@ -79,6 +91,7 @@ export function Content() {
           path="/exercises"
           element={<ExercisesIndex exercises={exercises} onShowExercise={handleShowExercise} />}
         />
+        <Route path="/routines" element={<RoutinesIndex routines={routines} />} />
         <Route path="/exercises/new" element={<ExercisesNew onCreateExercise={handleCreateExercise} />} />
         <Route path="/logoutlink" element={<LogoutLink />} />
       </Routes>

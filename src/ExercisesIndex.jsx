@@ -9,7 +9,6 @@ export function ExercisesIndex(props) {
             <h2>{exercise.title}</h2>
             <p>{exercise.description}</p>
             <img className="odject-scale-down aspect-square object-cover" src={exercise.image_url} />
-            <video src={exercise.video_url} />
             <button onClick={() => props.onShowExercise(exercise)}>More Info</button>
           </div>
         ))}
