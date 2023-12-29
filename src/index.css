@@ -5,5 +5,7 @@
 html {
   scroll-behavior: smooth;
   text-align: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Prompt', sans-serif;
   color: white;
 }

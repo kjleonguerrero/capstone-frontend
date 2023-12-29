@@ -17,9 +17,11 @@ export function ExercisesShow(props) {
       <h1 className="text-3xl font-bold underline decoration-rose-500 underline-offset-8px gap-5 p-10">
         {props.exercise.title}
       </h1>
-      <div className="justify-left grid grid-cols-2 bg-zinc-900 shadow-2xl gap-5 p-3 align-center">
-        <ReactPlayer url={props.exercise.video_url} />
-        <p className="text-clip overflow-hidden">{props.exercise.description}</p>
+      <div className="justify-left grid grid-cols-2 bg-zinc-900 shadow-2xl gap-5 p-3">
+        <div className="">
+          <ReactPlayer url={props.exercise.video_url} />
+        </div>
+        <p className="pl-44 pt-20">{props.exercise.description}</p>
       </div>
       <form onSubmit={handleSubmit}>
         <div>
