@@ -92,7 +92,7 @@ export function Signup() {
         </button>
         <p className="p-3">
           Already have an account?
-          <Link className="text-sky-500" to="/signup">
+          <Link className="text-sky-500" to="/login">
             {" "}
             Login
           </Link>

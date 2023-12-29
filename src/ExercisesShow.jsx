@@ -21,7 +21,7 @@ export function ExercisesShow(props) {
         <div className="">
           <ReactPlayer url={props.exercise.video_url} />
         </div>
-        <p className="pl-44 pt-20">{props.exercise.description}</p>
+        <p className="pl-30 pt-20">{props.exercise.description}</p>
       </div>
       <form onSubmit={handleSubmit}>
         <div>
