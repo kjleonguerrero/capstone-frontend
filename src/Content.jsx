@@ -3,6 +3,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Signup } from "./Signup";
 import { Login } from "./Login";
+import { Home } from "./Home";
 import { LogoutLink } from "./LogoutLink";
 import { ExercisesNew } from "./ExercisesNew";
 import { ExercisesShow } from "./ExercisesShow";
@@ -85,6 +86,7 @@ export function Content() {
   return (
     <main>
       <Routes>
+        <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route

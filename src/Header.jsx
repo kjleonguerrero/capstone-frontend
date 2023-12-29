@@ -16,7 +16,7 @@ export function Header() {
               {/* <!-- Nav Links --> */}
               <ul className="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
                 <li>
-                  <Link className="hover:text-rose-500" to="#">
+                  <Link className="hover:text-rose-500" to="/home">
                     Home
                   </Link>
                 </li>
@@ -33,6 +33,11 @@ export function Header() {
                 <li>
                   <Link className="hover:text-rose-500" to="/login">
                     Login
+                  </Link>
+                </li>
+                <li>
+                  <Link className="hover:text-rose-500" to="/signup">
+                    Signup
                   </Link>
                 </li>
                 <li>

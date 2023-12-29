@@ -7,7 +7,7 @@ export function ExercisesNew(props) {
   };
 
   return (
-    <div>
+    <div className="bg-zinc-900 text-white">
       <h1>New Exercise</h1>
       <form onSubmit={handleSubmit}>
         <div>

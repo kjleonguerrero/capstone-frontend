@@ -1,4 +1,6 @@
 /* eslint-disable react/prop-types */
+import ReactPlayer from "react-player";
+
 export function ExercisesShow(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -11,11 +13,14 @@ export function ExercisesShow(props) {
   };
 
   return (
-    <div>
-      <h1>Exercise Details</h1>
-      <h3>{props.exercise.title}</h3>
-      <p>{props.exercise.description}</p>
-      <video src={props.exercise.video_url}></video>
+    <div className="bg-zinc-900 text-white">
+      <h1 className="text-3xl font-bold underline decoration-rose-500 underline-offset-8px gap-5 p-10">
+        {props.exercise.title}
+      </h1>
+      <div className="justify-left grid grid-cols-2 bg-zinc-900 shadow-2xl gap-5 p-3 align-center">
+        <ReactPlayer url={props.exercise.video_url} />
+        <p className="text-clip overflow-hidden">{props.exercise.description}</p>
+      </div>
       <form onSubmit={handleSubmit}>
         <div>
           Title: <input defaultValue={props.exercise.title} name="title" type="text" />
@@ -35,3 +40,5 @@ export function ExercisesShow(props) {
     </div>
   );
 }
+
+// src={props.exercise.video_url}
