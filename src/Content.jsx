@@ -18,7 +18,6 @@ export function Content() {
   const [currentExercise, setCurrentExercise] = useState({});
 
   const handleIndexExercises = () => {
-    console.log("handleIndexExercises");
     axios.get("http://localhost:3000/exercises.json").then((response) => {
       console.log(response.data);
       setExercises(response.data);
@@ -26,7 +25,6 @@ export function Content() {
   };
 
   const handleIndexRoutines = () => {
-    console.log("handleIndexRoutines");
     axios.get("http://localhost:3000/routines.json").then((response) => {
       console.log(response.data);
       setRoutines(response.data);
@@ -34,7 +32,6 @@ export function Content() {
   };
 
   const handleCreateExercise = (params, successCallback) => {
-    console.log("handleCreateExercise", params);
     axios.post("http://localhost:3000/exercises.json", params).then((response) => {
       setExercises([...exercises, response.data]);
       successCallback();
@@ -42,13 +39,11 @@ export function Content() {
   };
 
   const handleShowExercise = (exercise) => {
-    console.log("handleShowExercise", exercise);
     setIsExercisesShowVisible(true);
     setCurrentExercise(exercise);
   };
 
   const handleUpdateExercise = (id, params, successCallback) => {
-    console.log(handleUpdateExercise, params);
     axios.patch(`http://localhost:3000/exercises/${id}.json`, params).then((response) => {
       setExercises(
         exercises.map((exercise) => {
@@ -65,12 +60,10 @@ export function Content() {
   };
 
   const handleClose = () => {
-    console.log("handleClose");
     setIsExercisesShowVisible(false);
   };
 
   const handleDestroyExercise = (exercise) => {
-    console.log("handleDestroyExercise", exercise);
     axios.delete(`http://localhost:3000/exercises/${exercise.id}.json`).then((response) => {
       console.log(response.data);
       setExercises(exercises.filter((e) => e.id !== exercise.id));

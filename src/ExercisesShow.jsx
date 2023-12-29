@@ -18,7 +18,7 @@ export function ExercisesShow(props) {
         {props.exercise.title}
       </h1>
       <div className="justify-left grid grid-cols-2 bg-zinc-900 shadow-2xl gap-5 p-3">
-        <div className="">
+        <div>
           <ReactPlayer url={props.exercise.video_url} />
         </div>
         <p className="pl-30 pt-20">{props.exercise.description}</p>
