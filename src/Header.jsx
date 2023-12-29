@@ -30,22 +30,27 @@ export function Header() {
                     Routine
                   </Link>
                 </li>
-                <li>
-                  <Link className="hover:text-rose-500" to="/login">
-                    Login
-                  </Link>
-                </li>
-                <li>
-                  <Link className="hover:text-rose-500" to="/signup">
-                    Signup
-                  </Link>
-                </li>
-                <li>
-                  <a className="hover:text-rose-500">
-                    {" "}
-                    <LogoutLink />
-                  </a>
-                </li>
+                {localStorage.jwt === undefined ? (
+                  <>
+                    <li>
+                      <Link className="hover:text-rose-500" to="/login">
+                        Login
+                      </Link>
+                    </li>
+                    <li>
+                      <Link className="hover:text-rose-500" to="/signup">
+                        Signup
+                      </Link>
+                    </li>
+                  </>
+                ) : (
+                  <li>
+                    <a className="hover:text-rose-500">
+                      {" "}
+                      <LogoutLink />
+                    </a>
+                  </li>
+                )}
               </ul>
             </div>
           </nav>
